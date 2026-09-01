@@ -23,7 +23,7 @@ PDF invoice generation, and secure authentication.
 
 ## Screenshots
 
-![Dashboard](./public/image/invoicePrev.webp)
+![Dashboard](./frontend/public/image/invoicePrev.webp)
 
 ---
 
