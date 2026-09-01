@@ -1,0 +1,170 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*---------------------------------------------------*
+ * Light Theme                                       *
+ *---------------------------------------------------*/
+:root {
+  /* Background */
+  --background: #ffffff;
+  --background-secondary: #f8fafc;
+
+  /* Typography */
+  --title: #0b1728;
+  --title-secondary: #00966d;
+  --text: #62748a;
+  --text-muted: #acb5bd;
+
+  /* Card */
+  --card: #f8fafc;
+  --card-hover: #f8fafc;
+
+  /* Button */
+  --button: #00966d;
+  --button-hover: #007d5b;
+  --button-text: #ffffff;
+
+  /* Border */
+  --border: #e2e8f0;
+  --border-hover: #00966d;
+
+  --surface: #f8fafc;
+  --badge: #e3f7ef;
+
+  /* Status */
+  --success: #2e8b57;
+  --warning: #b5790a;
+  --danger: #e9524a;
+  /* status  */
+  --successBg: rgba(0, 150, 109, 0.08);
+  --warningBg: rgba(233, 82, 74, 0.08);
+  --dangerBg: rgba(233, 82, 74, 0.12);
+
+  /* shadow */
+  --shadow-sm: 0 4px 16px rgba(11, 23, 40, 0.08);
+  --shadow-lg: 0 16px 48px rgba(11, 23, 40, 0.16);
+}
+
+/*---------------------------------------------------*
+ * Light Dark                                        *
+ *---------------------------------------------------*/
+.dark {
+  /* Background */
+  --background: #0b1728;
+  --background-secondary: #09111f;
+
+  /* Typography */
+  --title: #e1e8f0;
+  --title-secondary: #00966d;
+  --text: #92a3b7;
+  --text-muted: #62748a;
+
+  /* Card */
+  --card: #162233;
+  --card-hover: #1c2d43;
+
+  /* Button */
+  --button: #00966d;
+  --button-hover: #007d5b;
+  --button-text: #ffffff;
+
+  /* Border */
+  --border: #f8fafc14;
+  --border-hover: #00966d;
+
+  --surface: #1c2d43;
+  --badge: #0f3d2e;
+
+  /* Status */
+  --success: #59b287;
+  --warning: #e8a33d;
+  --danger: #e9524a;
+  /* status bg */
+  --successBg: rgba(0, 150, 109, 0.08);
+  --warningBg: rgba(233, 82, 74, 0.08);
+  --dangerBg: rgba(233, 82, 74, 0.12);
+  /* shadow */
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.28);
+  --shadow-lg: 0 18px 56px rgba(0, 0, 0, 0.45);
+}
+@theme inline {
+  /* Colors */
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+
+  --color-title: var(--title);
+  --color-title-secondary: var(--title-secondary);
+
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+
+  --color-button: var(--button);
+  --color-button-hover: var(--button-hover);
+  --color-button-text: var(--button-text);
+
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+
+  --color-surface: var(--surface);
+  --color-badge: var(--badge);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  /* shadow */
+  --shadow-sm: var(--shadow-sm);
+  --shadow-lg: var(--shadow-lg);
+
+  --color-successBg: var(--successBg);
+  --color-warningBg: var(--warningBg);
+  --color-dangerBg: var(--dangerBg);
+
+  /* Fonts */
+  --font-primary: var(--font-space-grotesk);
+  --font-secondary: var(--font-dMSans);
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-secondary);
+}
+
+@layer base {
+  h1 {
+    @apply text-[34px] sm:text-4xl md:text-5xl lg:text-[55px] font-primary font-bold leading-[1.2] tracking-normal text-title;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-primary font-bold leading-[1.3] tracking-normal text-title;
+  }
+
+  h3 {
+    @apply text-3xl font-primary font-semibold leading-[1.3] tracking-normal text-title;
+  }
+
+  h4 {
+    @apply text-[18px] font-primary font-bold leading-[1.4] tracking-normal text-title;
+  }
+
+  p {
+    @apply text-[15px] font-secondary font-light leading-[1.6] tracking-normal text-text;
+  }
+
+  .p13 {
+    @apply text-[14px] font-secondary font-normal leading-[1.6] tracking-normal text-text-muted;
+  }
+
+  .p10 {
+    @apply text-[12px] font-secondary font-normal leading-[1.6] tracking-normal text-text-muted;
+  }
+
+  .app-container {
+    @apply p-5 pb-20 w-full h-full max-w-300 mx-auto;
+  }
+}
