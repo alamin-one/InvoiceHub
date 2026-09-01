@@ -1,6 +1,8 @@
 # InvoiceHub — Invoice & Customer Management System
 
-A full-stack invoicing application built for businesses and freelancers to manage **customers**, **invoices**, and **payments** with a real-time dashboard, PDF invoice generation, and secure authentication.
+A full-stack invoicing application built for businesses and freelancers to
+manage **customers**, **invoices**, and **payments** with a real-time dashboard,
+PDF invoice generation, and secure authentication.
 
 ![Next.js](https://img.shields.io/badge/Next.js-App_Router-black?logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?logo=typescript)
@@ -14,31 +16,34 @@ A full-stack invoicing application built for businesses and freelancers to manag
 
 ## Live Demo
 
-**Live Preview:** [https://alamin-invoicehub.vercel.app/](https://alamin-invoicehub.vercel.app/)
+**Live Preview:**
+[https://alamin-invoicehub.vercel.app/](https://alamin-invoicehub.vercel.app/)
 
 ---
 
 ## Screenshots
 
-![Dashboard](./public/dashboard.webp)
-
+![Dashboard](./public/image/invoicePrev.webp)
 
 ---
 
 ## Features
 
 ### Authentication
+
 - Sign Up / Sign In
 - Forgot Password / Reset Password Flow only via email
 - JWT-based Auth (Access & Refresh Tokens)
 - Protected Routes & Middleware
 
 ### Customers
+
 - Create / Edit / Delete Customers
 - Customer Search
 - Customer Detail Page with Invoice Summary (Total Paid, Due, Partial)
 
 ### Invoices
+
 - Create / Edit / Delete Invoices
 - Status Filter (Paid / Due / Partial)
 - Search by Customer or Invoice Number
@@ -46,16 +51,19 @@ A full-stack invoicing application built for businesses and freelancers to manag
 - Invoice-wise Payment Tracking
 
 ### Dashboard & Analytics
+
 - Overview Cards (Revenue, Due, Paid, Partial)
 - Recent Invoices & Customers
 - Charts & Graphs (Chart.js)
 
 ### Settings
+
 - Store Profile Settings (Name, Logo, Contact Info)
 - Logo Upload via Cloudinary
 - Email Notifications (Nodemailer)
 
 ### Core Functionality
+
 - REST API (Express + Mongoose)
 - RTK Query for Data Fetching & Caching
 - Form Validation (React Hook Form)
@@ -67,30 +75,32 @@ A full-stack invoicing application built for businesses and freelancers to manag
 ## Tech Stack
 
 ### Frontend
-| Package | Purpose |
-|---|---|
-| Next.js (App Router) | Framework |
-| TypeScript | Type Safety |
-| Redux Toolkit / RTK Query | State & Data Fetching |
-| Tailwind CSS | Styling |
-| React Hook Form | Form Handling |
-| Chart.js / react-chartjs-2 | Analytics Charts |
-| SweetAlert2 | Alerts & Confirmations |
-| Lucide React | Icons |
-| Cloudinary | Image/Logo Upload |
-| Jose | JWT Verification (Edge/Middleware) |
+
+| Package                    | Purpose                            |
+| -------------------------- | ---------------------------------- |
+| Next.js (App Router)       | Framework                          |
+| TypeScript                 | Type Safety                        |
+| Redux Toolkit / RTK Query  | State & Data Fetching              |
+| Tailwind CSS               | Styling                            |
+| React Hook Form            | Form Handling                      |
+| Chart.js / react-chartjs-2 | Analytics Charts                   |
+| SweetAlert2                | Alerts & Confirmations             |
+| Lucide React               | Icons                              |
+| Cloudinary                 | Image/Logo Upload                  |
+| Jose                       | JWT Verification (Edge/Middleware) |
 
 ### Backend
-| Package | Purpose |
-|---|---|
-| Node.js / Express | REST API Server |
-| Mongoose | MongoDB ODM |
-| JSON Web Token | Authentication |
-| Bcrypt | Password Hashing |
+
+| Package                         | Purpose                |
+| ------------------------------- | ---------------------- |
+| Node.js / Express               | REST API Server        |
+| Mongoose                        | MongoDB ODM            |
+| JSON Web Token                  | Authentication         |
+| Bcrypt                          | Password Hashing       |
 | Puppeteer + @sparticuz/chromium | PDF Invoice Generation |
-| Nodemailer | Email Service |
-| Cookie Parser | Cookie Handling |
-| CORS | Cross-Origin Requests |
+| Nodemailer                      | Email Service          |
+| Cookie Parser                   | Cookie Handling        |
+| CORS                            | Cross-Origin Requests  |
 
 ---
 
@@ -152,16 +162,19 @@ InvoiceHub/
 ## Getting Started
 
 ### Clone the Repository
+
 ```bash
 git clone https://github.com/alamin-one/InvoiceHub.git
 ```
 
 ### Navigate to the Project
+
 ```bash
 cd InvoiceHub
 ```
 
 ### Backend Setup
+
 ```bash
 cd backend
 npm install
@@ -169,6 +182,7 @@ npm run dev
 ```
 
 ### Frontend Setup
+
 ```bash
 cd frontend
 npm install
@@ -176,6 +190,7 @@ npm run dev
 ```
 
 Open your browser and visit:
+
 ```
 http://localhost:3000
 ```
@@ -185,6 +200,7 @@ http://localhost:3000
 ## Environment Variables
 
 **Backend (`backend/.env`)**
+
 ```env
 
 DATABASE_URL=
@@ -199,6 +215,7 @@ SMTP_PASS=
 ```
 
 **Frontend (`frontend/.env.local`)**
+
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:8000
 
@@ -216,8 +233,8 @@ CLOUDINARY_API_SECRET=
 
 ## Developed By
 
-**Al-Amin**
-GitHub: [https://github.com/alamin-one](https://github.com/alamin-one)
+**Al-Amin** GitHub:
+[https://github.com/alamin-one](https://github.com/alamin-one)
 
 ---
 
