@@ -18,7 +18,7 @@ import {
   Store,
   Trash2,
 } from 'lucide-react';
-import Loading from '@/lib/Loading';
+import Loading from '@/components/shared/Loading';
 
 const MENU_ITEMS = [
   { id: 'profile', label: 'profile', icon: Store },

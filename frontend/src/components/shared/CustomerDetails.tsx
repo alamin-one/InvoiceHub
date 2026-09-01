@@ -15,8 +15,8 @@ import {
   useGetCustomerByIdQuery,
 } from '@/redux/feature/customerSlice';
 import { Invoice } from '@/types/invoice';
-import Loading from '@/lib/Loading';
-import NotFound from '@/lib/NotFound';
+import Loading from '@/components/shared/Loading';
+import NotFound from '@/components/shared/NotFound';
 
 const CustomerDetails = () => {
   const params = useParams();

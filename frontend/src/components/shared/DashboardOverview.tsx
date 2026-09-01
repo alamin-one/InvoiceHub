@@ -10,8 +10,8 @@ import Card from '@/components/ui/card';
 import Label from '@/components/ui/Label';
 
 import { AlertCircle, FileText, TrendingUp, Wallet } from 'lucide-react';
-import Loading from '@/lib/Loading';
-import NotFound from '@/lib/NotFound';
+import Loading from '@/components/shared/Loading';
+import NotFound from '@/components/shared/NotFound';
 const DashboardOverview = () => {
   const limit = 6;
   const { data, isLoading, isError } = useGetInvoiceListQuery({ limit });

@@ -6,7 +6,7 @@ import FormCreateInvoice from '@/components/shared/FormCreateInvoice';
 import SectionBar from '@/components/shared/SectionBar';
 import { useGetCustomerListQuery } from '@/redux/feature/customerSlice';
 import { useGetInvoiceByIdQuery } from '@/redux/feature/invoiceSlice';
-import Loading from '@/lib/Loading';
+import Loading from '@/components/shared/Loading';
 
 const Page = () => {
   const params = useParams();

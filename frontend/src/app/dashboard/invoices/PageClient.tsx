@@ -4,8 +4,8 @@ import { useSearchParams } from 'next/navigation';
 
 import InvoiceCard from '@/components/shared/InvoiceCard';
 import { useGetInvoiceListQuery } from '@/redux/feature/invoiceSlice';
-import Loading from '@/lib/Loading';
-import NotFound from '@/lib/NotFound';
+import Loading from '@/components/shared/Loading';
+import NotFound from '@/components/shared/NotFound';
 
 const PageClient = () => {
   const params = useSearchParams();

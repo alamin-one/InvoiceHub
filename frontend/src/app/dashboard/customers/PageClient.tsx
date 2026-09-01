@@ -4,8 +4,8 @@ import { useSearchParams } from 'next/navigation';
 
 import CustomerCard from '@/components/shared/CustomerCard';
 import { useGetCustomerListQuery } from '@/redux/feature/customerSlice';
-import Loading from '@/lib/Loading';
-import NotFound from '@/lib/NotFound';
+import Loading from '@/components/shared/Loading';
+import NotFound from '@/components/shared/NotFound';
 
 const PageClient = () => {
   const params = useSearchParams();

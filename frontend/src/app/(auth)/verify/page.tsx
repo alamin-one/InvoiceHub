@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 
 import FromVerification from '@/components/auth/From-Verification';
 import SingInShowcase from '@/components/auth/SingInShowcase';
-import Loading from '@/lib/Loading';
+import Loading from '@/components/shared/Loading';
 
 const VerifyPage = () => {
   return (

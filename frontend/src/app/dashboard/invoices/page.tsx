@@ -5,7 +5,7 @@ import InvoiceFilter from '@/components/shared/InvoiceFilter';
 import SectionBar from '@/components/shared/SectionBar';
 import Button from '@/components/ui/button';
 import PageClient from './PageClient';
-import Loading from '@/lib/Loading';
+import Loading from '@/components/shared/Loading';
 
 const page = async () => {
   return (

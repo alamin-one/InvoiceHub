@@ -13,8 +13,8 @@ import {
   useGetInvoiceByIdQuery,
   useUpdateInvoiceMutation,
 } from '@/redux/feature/invoiceSlice';
-import Loading from '@/lib/Loading';
-import NotFound from '@/lib/NotFound';
+import Loading from '@/components/shared/Loading';
+import NotFound from '@/components/shared/NotFound';
 import useInvoiceDownload from '@/lib/useDownloadInvoice';
 
 const statusStyles = {
