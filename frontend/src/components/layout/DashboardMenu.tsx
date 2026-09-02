@@ -58,6 +58,7 @@ const DashboardMenu = () => {
       if (!res) return;
       if (res.success) {
         Cookies.remove('clientToken', {
+          secure: process.env.NODE_ENV === 'production',
           sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
         });
 
