@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description:
     'A full-stack invoicing application for businesses and freelancers to manage customers, invoices, payments, and analytics with secure authentication and PDF invoice generation.',
 
-  metadataBase: new URL('https://alamin-invoicehub.vercel.app/'),
+  metadataBase: new URL('https://alamin-invoice-hub.vercel.app'),
 
   openGraph: {
     title: 'InvoiceHub | Invoice & Customer Management System',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
     siteName: 'InvoiceHub',
 
-    url: 'https://alamin-invoicehub.vercel.app/',
+    url: 'https://alamin-invoice-hub.vercel.app/',
 
     type: 'website',
 
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     description:
       'Full-stack invoicing application for managing customers, invoices, payments, and business analytics.',
 
-    images: ['/image/invoicePrev.webp'],
+    images: ['./frontend/public/image/invoicePrev.webp'],
   },
 
   robots: {
