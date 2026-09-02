@@ -3,6 +3,11 @@ import { StoreOverview } from '@/types/store';
 //import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { baseApi } from './baseApi';
 
+type authResponse = {
+  message: string;
+  storeId: string;
+  success: boolean;
+};
 type StoreList = {
   message: string;
   store: Store;
@@ -16,9 +21,15 @@ type Overview = {
 
 export const storeApi = baseApi.injectEndpoints({
   endpoints: build => ({
+    // Check authentication
+    checkAuth: build.query<authResponse, void>({
+      query: () => '/store/check-auth',
+      providesTags: ['Store'],
+    }),
+
     // Get store list
     getStoreList: build.query<StoreList, void>({
-      query: () => '/store/me',
+      query: () => '/store',
       providesTags: ['Store'],
     }),
 
@@ -135,6 +146,7 @@ export const storeApi = baseApi.injectEndpoints({
 });
 
 export const {
+  useCheckAuthQuery,
   useGetStoreListQuery,
   useSignInMutation,
   useSignUpMutation,

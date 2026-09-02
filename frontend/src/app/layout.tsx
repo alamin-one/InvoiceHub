@@ -3,6 +3,7 @@ import { DM_Sans, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import ThemeProviders from '@/providers/ThemeProvider';
 import ReduxProvider from '@/providers/ReduxProvider';
+import AuthGuard from '@/components/AuthGuard';
 
 const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
@@ -73,7 +74,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       <body className="min-h-full flex flex-col">
         {
           <ThemeProviders>
-            <ReduxProvider>{children}</ReduxProvider>
+            <ReduxProvider>
+              <AuthGuard>{children}</AuthGuard>
+            </ReduxProvider>
           </ThemeProviders>
         }
       </body>

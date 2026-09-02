@@ -11,8 +11,10 @@ const {
   forgotPassword,
   verifyForgotPassword,
   resetPassword,
-  me,
+
   overview,
+  getStore,
+  checkAuth,
 } = require('../controllers/stores.controller');
 const authentication = require('../authentication/authentication');
 
@@ -27,7 +29,11 @@ storeRoute.post('/forgot-password', forgotPassword);
 storeRoute.post('/verify-forgot-password', verifyForgotPassword);
 storeRoute.post('/reset-password', resetPassword);
 
-storeRoute.get('/me', authentication, me);
+// Check authentication
+
+storeRoute.get('/check-auth', authentication, checkAuth);
+
+storeRoute.get('/', authentication, getStore);
 storeRoute.get('/overview', authentication, overview);
 
 storeRoute.patch('/update-profile', authentication, updateStoreById);

@@ -40,6 +40,17 @@ const buildStoreOverview = require('../libs/buildStoreOverview');
 
 /*----------------------------------------*
  *                                        *
+ *   CHECK AUTHENTICATION                 *
+ *                                        *
+ *--------------------------------------- */
+const checkAuth = async (req, res) => {
+  return sendResponse(res, 200, true, {
+    storeId: res.locals.storeId,
+  });
+};
+
+/*----------------------------------------*
+ *                                        *
  *   SIGNUP                               *
  *                                        *
  *--------------------------------------- */
@@ -471,7 +482,7 @@ const resetPassword = async (req, res) => {
  *  GET  ME                          *
  *                                   *
  *-----------------------------------*/
-const me = async (req, res) => {
+const getStore = async (req, res) => {
   const storeId = res.locals.storeId;
 
   try {
@@ -742,11 +753,12 @@ const deleteStore = async (req, res) => {
 };
 
 module.exports = {
+  checkAuth,
   signIn,
   signUp,
   verifySignup,
   signOut,
-  me,
+  getStore,
   overview,
   updateStoreById,
   updateStorePasswordById,

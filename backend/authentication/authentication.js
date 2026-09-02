@@ -20,5 +20,11 @@ const authentication = async (req, res, next) => {
     });
   }
 };
+const checkAuth = (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Authenticated successfully',
+  });
+};    
 
 module.exports = authentication;
