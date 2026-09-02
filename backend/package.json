@@ -18,6 +18,7 @@
   "type": "commonjs",
   "dependencies": {
     "@sparticuz/chromium": "^149.0.0",
+    "axios": "^1.20.0",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
@@ -26,7 +27,6 @@
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.9.3",
     "node": "^26.7.0",
-    "nodemailer": "^9.0.5",
     "nodemon": "^3.1.14",
     "puppeteer-core": "^25.9.0"
   },
