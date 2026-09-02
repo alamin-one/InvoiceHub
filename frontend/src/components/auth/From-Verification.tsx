@@ -1,5 +1,5 @@
 'use client';
-
+import Cookies from 'js-cookie';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Input from '../ui/input';
 import Button from '../ui/button';
@@ -36,7 +36,13 @@ const FromVerification = () => {
         if (role === 'forgot') {
           route.push('/reset-password');
         } else {
-          handleAlert(res.success, res.message || 'Verify Signup successful');
+          Cookies.set('clientToken', res.clientToken, {
+            expires: 20,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+          });
+
+          handleAlert(res?.success, res.message || 'Login successful');
           route.push('/dashboard');
         }
       }

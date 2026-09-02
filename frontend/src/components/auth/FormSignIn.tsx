@@ -1,5 +1,5 @@
 'use client';
-
+import Cookies from 'js-cookie';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -27,13 +27,23 @@ const FormSignIn = () => {
     try {
       const res = await signIn(data).unwrap();
       if (!res) return;
-      handleAlert(res?.success, res.message || 'Login successful');
+
       if (res.success) {
+        Cookies.set('clientToken', res.clientToken, {
+          expires: 20,
+          secure: process.env.NODE_ENV === 'production',
+          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+        });
+
+        handleAlert(res?.success, res.message || 'Login successful');
         route.push('/dashboard');
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      handleAlert(false, error?.data?.message || error?.message || 'Something went wrong!!');
+      handleAlert(
+        false,
+        error?.data?.message || error?.message || 'Something went wrong!!',
+      );
     }
   };
 

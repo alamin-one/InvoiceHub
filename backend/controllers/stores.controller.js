@@ -43,11 +43,6 @@ const buildStoreOverview = require('../libs/buildStoreOverview');
  *   CHECK AUTHENTICATION                 *
  *                                        *
  *--------------------------------------- */
-const checkAuth = async (req, res) => {
-  return sendResponse(res, 200, true, {
-    storeId: res.locals.storeId,
-  });
-};
 
 /*----------------------------------------*
  *                                        *
@@ -219,8 +214,15 @@ const verifySignup = async (req, res) => {
       maxAge: 20 * 24 * 60 * 60 * 1000,
     });
 
+    // set client route token , just for frontend routing auto login
+    const clientToken = jwt.sign(
+      { isLoggedIn: true, type: 'client-only' },
+      process.env.JWT_PRIVATE_KEY,
+      { expiresIn: '20d' },
+    );
+
     // Send success response
-    sendResponse(res, 200, true, 'Verify Signup successful');
+    sendResponse(res, 200, true, 'Verify Signup successful', { clientToken });
   } catch (err) {
     return sendResponse(
       res,
@@ -262,6 +264,8 @@ const signIn = async (req, res) => {
         expiresIn: '20d',
       },
     );
+
+    // set token cookie , backend protected route
     res.cookie('token', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
@@ -269,7 +273,14 @@ const signIn = async (req, res) => {
       maxAge: 20 * 24 * 60 * 60 * 1000,
     });
 
-    return sendResponse(res, 200, true, 'Login successful');
+    // set client route token , just for frontend routing
+    const clientToken = jwt.sign(
+      { isLoggedIn: true, type: 'client-only' },
+      process.env.JWT_PRIVATE_KEY,
+      { expiresIn: '20d' },
+    );
+
+    return sendResponse(res, 200, true, 'Login successful', { clientToken });
   } catch (err) {
     return sendResponse(res, 500, false, err.message || 'Sign In Failed!');
   }
@@ -289,7 +300,9 @@ const signOut = async (req, res) => {
       maxAge: 20 * 24 * 60 * 60 * 1000,
     });
 
-    return sendResponse(res, 200, true, 'Signed out successfully');
+    return sendResponse(res, 200, true, 'Signed out successfully', {
+      clientToken: false,
+    });
   } catch (err) {
     return sendResponse(res, 400, false, err.message || 'Sign Out Failed!');
   }
@@ -753,7 +766,6 @@ const deleteStore = async (req, res) => {
 };
 
 module.exports = {
-  checkAuth,
   signIn,
   signUp,
   verifySignup,

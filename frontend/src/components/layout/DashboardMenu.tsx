@@ -1,5 +1,5 @@
 'use client';
-
+import Cookies from 'js-cookie';
 import { usePathname, useRouter } from 'next/navigation';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -56,9 +56,14 @@ const DashboardMenu = () => {
     try {
       const res = await signOut({}).unwrap();
       if (!res) return;
-      handleAlert(res.success, res.message || 'Logout successful');
       if (res.success) {
+        Cookies.remove('clientToken', {
+          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+        });
+
+        handleAlert(res.success, res.message || 'Logout successful');
         route.push('/signin');
+        route.refresh();
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {

@@ -14,7 +14,6 @@ const {
 
   overview,
   getStore,
-  checkAuth,
 } = require('../controllers/stores.controller');
 const authentication = require('../authentication/authentication');
 
@@ -30,8 +29,6 @@ storeRoute.post('/verify-forgot-password', verifyForgotPassword);
 storeRoute.post('/reset-password', resetPassword);
 
 // Check authentication
-
-storeRoute.get('/check-auth', authentication, checkAuth);
 
 storeRoute.get('/', authentication, getStore);
 storeRoute.get('/overview', authentication, overview);
