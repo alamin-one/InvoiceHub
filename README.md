@@ -17,7 +17,7 @@ PDF invoice generation, and secure authentication.
 ## Live Demo
 
 **Live Preview:**
-[https://alamin-invoicehub.vercel.app/](https://alamin-invoicehub.vercel.app/)
+[https://alamin-invoice-hub.vercel.app/signin](https://alamin-invoice-hub.vercel.app/signin)
 
 ---
 
