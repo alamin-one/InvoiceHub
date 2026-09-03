@@ -23,26 +23,6 @@ const customerSchema = new Schema(
       type: String,
       trim: true,
     },
-
-    invoiceCount: {
-      type: Number,
-      default: 0,
-    },
-
-    totalPaid: {
-      type: Number,
-      default: 0,
-    },
-
-    totalDue: {
-      type: Number,
-      default: 0,
-    },
-
-    partialCount: {
-      type: Number,
-      default: 0,
-    },
   },
   {
     timestamps: true,

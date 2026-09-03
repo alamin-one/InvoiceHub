@@ -1,5 +1,7 @@
 const { hashPassword, comparePassword } = require('../libs/bcryptOperation');
+
 const Invoice = require('../models/invoiceModel');
+const Customer = require('../models/customerModel');
 const Store = require('../models/storeModel');
 const bcrypt = require('bcrypt');
 const TempStore = require('../models/TempStore');
@@ -754,7 +756,23 @@ const deleteStore = async (req, res) => {
     }
 
     await store.deleteOne();
-    sendResponse(res, 200, true, 'Store Delete Successfully');
+
+    // delete all  customer  by store
+    await Customer.deleteMany({ store: storeId });
+    // delete all  invoice  by store
+    await Invoice.deleteMany({ store: storeId });
+
+    // clear  routing token  by store
+    res.clearCookie('token', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      maxAge: 20 * 24 * 60 * 60 * 1000,
+    });
+
+    return sendResponse(res, 200, true, 'Store Delete Successfully', {
+      clientToken: false,
+    });
   } catch (err) {
     return sendResponse(
       res,

@@ -7,16 +7,13 @@ import Input from '../ui/input';
 import { Eye, EyeOff, Trash2 } from 'lucide-react';
 import Button from '../ui/button';
 import handleAlert from '@/lib/handleAlert';
-import {
-  useDeleteAccountMutation,
-  useSignOutMutation,
-} from '@/redux/feature/storeSlice';
+import { useDeleteAccountMutation } from '@/redux/feature/storeSlice';
 import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
 
 const StoreDeleteAccount = () => {
-  const router = useRouter();
+  const route = useRouter();
   const [deleteAccount, { isLoading }] = useDeleteAccountMutation();
-  const [signOut] = useSignOutMutation();
   const {
     register,
     handleSubmit,
@@ -31,10 +28,14 @@ const StoreDeleteAccount = () => {
     try {
       const res = await deleteAccount(data).unwrap();
       if (!res) return;
-      handleAlert(res.success, res.message || '');
       if (res.success) {
-        await signOut({});
-        router.push('/signup');
+        handleAlert(res.success, res.message || 'Store Delete Successfully');
+        Cookies.remove('clientToken', {
+          secure: process.env.NODE_ENV === 'production',
+          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+        });
+        route.push('/signup');
+        route.refresh();
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {

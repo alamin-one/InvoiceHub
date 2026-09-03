@@ -111,14 +111,14 @@ const StoreProfile = ({ store }: { store: Store }) => {
             label="Business Name"
             type="text"
             name="name"
-            defaultValue={store.name}
+            defaultValue={store?.name || ''}
             placeholder="Hafu Traders"
           />
           <Input
             name="tagline"
             label="Tagline"
             type="text"
-            defaultValue={store.tagline}
+            defaultValue={store?.tagline || ''}
             placeholder="Wholesale & Retail Supplier"
           />
         </div>
@@ -127,14 +127,14 @@ const StoreProfile = ({ store }: { store: Store }) => {
             label="Email"
             type="email"
             name="email"
-            defaultValue={store.email}
+            defaultValue={store?.email || ''}
             placeholder="hello@novatraders.com"
           />
           <Input
             label="Phone"
             type="tel"
             name="phone"
-            defaultValue={store.phone}
+            defaultValue={store?.phone || ''}
             placeholder="+880 1711-123456"
           />
         </div>
@@ -142,7 +142,7 @@ const StoreProfile = ({ store }: { store: Store }) => {
         <Textarea
           label="Address"
           name="address"
-          defaultValue={store.address}
+          defaultValue={store?.address || ''}
           placeholder="address"
         />
 

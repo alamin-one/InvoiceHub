@@ -22,7 +22,7 @@ const storeRoute = express.Router();
 storeRoute.post('/signup', signUp);
 storeRoute.post('/verify-signup', verifySignup);
 storeRoute.post('/signin', signIn);
-storeRoute.post('/signout', authentication, signOut);
+storeRoute.post('/signout', signOut);
 
 storeRoute.post('/forgot-password', forgotPassword);
 storeRoute.post('/verify-forgot-password', verifyForgotPassword);
